@@ -1,35 +1,49 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# Birthday Card Generator
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+Projeto de estudo feito com Kotlin Multiplatform e Compose Multiplatform para Android e iOS.
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+O app mostra um cartão de aniversário simples, com imagem de fundo e textos sobrepostos. A ideia principal é servir como base de aprendizado para:
 
-### Build and Run Android Application
+- compartilhar UI entre plataformas com Compose Multiplatform;
+- organizar código comum em `commonMain`;
+- manter pontos específicos de Android e iOS separados;
+- praticar a estrutura básica de um app multiplataforma.
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+## Estrutura
 
-### Build and Run iOS Application
+- `composeApp/src/commonMain`: código e UI compartilhados entre as plataformas.
+- `composeApp/src/androidMain`: implementações específicas do Android.
+- `composeApp/src/iosMain`: implementações específicas do iOS.
+- `iosApp`: ponto de entrada do app no Xcode.
 
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+## Como executar
 
----
+### Android
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+Para gerar o build de desenvolvimento do Android, execute:
+
+```shell
+./gradlew :composeApp:assembleDebug
+```
+
+No Windows:
+
+```shell
+.\gradlew.bat :composeApp:assembleDebug
+```
+
+Você também pode abrir o projeto na IDE e rodar a configuração padrão de execução.
+
+### iOS
+
+Para rodar no iOS, abra a pasta `iosApp` no Xcode e execute o projeto por lá.
+
+## Tecnologias
+
+- Kotlin Multiplatform
+- Compose Multiplatform
+- Material 3
+
+## Observação
+
+O conteúdo da tela principal é simples e pode ser alterado facilmente para testar novos layouts, textos, imagens e estilos enquanto o projeto evolui como estudo.
